@@ -21,7 +21,7 @@ targets:
     workspace:
       host: https://dbc-997428e2-b857.cloud.databricks.com
       # We always use /Users/shrutipenumetsa@gmail.com for all resources to make sure we only have a single copy.
-      root_path: /Workspace/Dev/
+      root_path: /Workspace/Dev/${bundle.name}
     run_as:
       # This runs as shrutipenumetsa@gmail.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
