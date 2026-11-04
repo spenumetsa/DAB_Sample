@@ -1,0 +1,37 @@
+bundle:
+  name: dab-sample
+
+sync:
+  exclude:
+    - .git/
+    - .github/
+    - tests/
+    - .env*
+    - "**/*.pyc"
+    - "**/__pycache__"
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-997428e2-b857.cloud.databricks.com
+      root_path: /Workspace/Dev/
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-997428e2-b857.cloud.databricks.com
+      root_path:  /Workspace/Prod/
+    permissions:
+      - level: CAN_MANAGE
+        group_name: users
+
+variables:
+  databricks_host:
+    description: "Databricks Workspace URL"
+    default: "https://dbc-997428e2-b857.cloud.databricks.com"
+  databricks_client_id:
+    description: "Service Principal Client ID (Application ID) for production"
+    default: ""
+  
